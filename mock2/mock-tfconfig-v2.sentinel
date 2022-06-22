@@ -1,0 +1,118 @@
+import "strings"
+
+providers = {
+	"google": {
+		"alias": "",
+		"config": {
+			"access_token": {
+				"references": [
+					"var.access_token",
+				],
+			},
+			"project": {
+				"references": [
+					"var.project_id",
+				],
+			},
+			"region": {
+				"constant_value": "us-central1",
+			},
+		},
+		"module_address":      "",
+		"name":                "google",
+		"provider_config_key": "google",
+		"version_constraint":  "",
+	},
+	"google-beta": {
+		"alias": "",
+		"config": {
+			"access_token": {
+				"references": [
+					"var.access_token",
+				],
+			},
+		},
+		"module_address":      "",
+		"name":                "google-beta",
+		"provider_config_key": "google-beta",
+		"version_constraint":  "",
+	},
+}
+
+resources = {
+	"google_dataflow_job.big_data_job": {
+		"address": "google_dataflow_job.big_data_job",
+		"config": {
+			"ip_configuration": {
+				"constant_value": null,
+			},
+			"labels": {
+				"constant_value": {},
+			},
+			"name": {
+				"references": [
+					"var.df-name",
+				],
+			},
+			"project": {
+				"references": [
+					"var.project_id",
+				],
+			},
+			"service_account_email": {
+				"constant_value": "composer-test-sa2@modular-scout-345114.iam.gserviceaccount.com",
+			},
+			"temp_gcs_location": {
+				"constant_value": "gs://my-bucket-df/tmp_dir",
+			},
+			"template_gcs_path": {
+				"constant_value": "gs://my-bucket-df/templates/template_file/latest_Word_Count",
+			},
+		},
+		"count":               {},
+		"depends_on":          [],
+		"for_each":            {},
+		"mode":                "managed",
+		"module_address":      "",
+		"name":                "big_data_job",
+		"provider_config_key": "google",
+		"provisioners":        [],
+		"type":                "google_dataflow_job",
+	},
+}
+
+provisioners = {}
+
+variables = {
+	"access_token": {
+		"default":        null,
+		"description":    "access_token",
+		"module_address": "",
+		"name":           "access_token",
+	},
+	"df-name": {
+		"default":        null,
+		"description":    "Name of Dataflow job",
+		"module_address": "",
+		"name":           "df-name",
+	},
+	"project_id": {
+		"default":        null,
+		"description":    "project_id",
+		"module_address": "",
+		"name":           "project_id",
+	},
+}
+
+outputs = {}
+
+module_calls = {}
+
+strip_index = func(addr) {
+	s = strings.split(addr, ".")
+	for s as i, v {
+		s[i] = strings.split(v, "[")[0]
+	}
+
+	return strings.join(s, ".")
+}

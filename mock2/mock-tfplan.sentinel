@@ -1,0 +1,203 @@
+import "strings"
+import "types"
+
+_modules = {
+	"root": {
+		"data": {},
+		"path": [],
+		"resources": {
+			"google_dataflow_job": {
+				"big_data_job": {
+					0: {
+						"applied": {
+							"additional_experiments":       null,
+							"enable_streaming_engine":      null,
+							"ip_configuration":             null,
+							"kms_key_name":                 null,
+							"labels":                       null,
+							"machine_type":                 null,
+							"max_workers":                  null,
+							"name":                         "dataflow-job-savita",
+							"network":                      null,
+							"on_delete":                    "drain",
+							"parameters":                   null,
+							"project":                      "modular-scout-345114",
+							"region":                       null,
+							"service_account_email":        "composer-test-sa2@modular-scout-345114.iam.gserviceaccount.com",
+							"skip_wait_on_job_termination": false,
+							"subnetwork":                   null,
+							"temp_gcs_location":            "gs://my-bucket-df/tmp_dir",
+							"template_gcs_path":            "gs://my-bucket-df/templates/template_file/latest_Word_Count",
+							"timeouts":                     null,
+							"transform_name_mapping":       null,
+							"zone": null,
+						},
+						"destroy": false,
+						"diff": {
+							"additional_experiments": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"enable_streaming_engine": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"ip_configuration": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"job_id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"kms_key_name": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"labels": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"machine_type": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"max_workers": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"name": {
+								"computed": false,
+								"new":      "dataflow-job-savita",
+								"old":      "",
+							},
+							"network": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"on_delete": {
+								"computed": false,
+								"new":      "drain",
+								"old":      "",
+							},
+							"parameters": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"project": {
+								"computed": false,
+								"new":      "modular-scout-345114",
+								"old":      "",
+							},
+							"region": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"service_account_email": {
+								"computed": false,
+								"new":      "composer-test-sa2@modular-scout-345114.iam.gserviceaccount.com",
+								"old":      "",
+							},
+							"skip_wait_on_job_termination": {
+								"computed": false,
+								"new":      "false",
+								"old":      "",
+							},
+							"state": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"subnetwork": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"temp_gcs_location": {
+								"computed": false,
+								"new":      "gs://my-bucket-df/tmp_dir",
+								"old":      "",
+							},
+							"template_gcs_path": {
+								"computed": false,
+								"new":      "gs://my-bucket-df/templates/template_file/latest_Word_Count",
+								"old":      "",
+							},
+							"timeouts": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"transform_name_mapping": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"type": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"zone": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+			},
+		},
+	},
+}
+
+module_paths = [
+	[],
+]
+
+terraform_version = "1.2.3"
+
+variables = {
+	"access_token": "REDACTED_SENSITIVE",
+	"df-name":      "dataflow-job-savita",
+	"project_id":   "modular-scout-345114",
+}
+
+module = func(path) {
+	if types.type_of(path) is not "list" {
+		error("expected list, got", types.type_of(path))
+	}
+
+	if length(path) < 1 {
+		return _modules.root
+	}
+
+	addr = []
+	for path as p {
+		append(addr, "module")
+		append(addr, p)
+	}
+
+	return _modules[strings.join(addr, ".")]
+}
+
+data = _modules.root.data
+path = _modules.root.path
+resources = _modules.root.resources

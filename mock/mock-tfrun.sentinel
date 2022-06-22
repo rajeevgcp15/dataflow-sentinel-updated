@@ -1,0 +1,43 @@
+id = "run-VaEZMJviT2gx8dCz"
+created_at = "2022-06-22T08:30:33.765Z"
+message = "Update variables.tf"
+commit_sha = "ba7e511bbf5abf5e7bcbc8aa1bda14e117f0cd81"
+speculative = false
+is_destroy = false
+refresh = true
+refresh_only = false
+replace_addrs = null
+target_addrs = null
+
+variables = {
+	"access_token": {
+		"category":  "terraform",
+		"sensitive": true,
+	},
+}
+
+organization = {
+	"name": "savita-wf",
+}
+
+workspace = {
+	"auto_apply":  false,
+	"created_at":  "2022-06-22T08:28:21.357Z",
+	"description": null,
+	"id":          "ws-zTtrUeUP67zwTSV9",
+	"name":        "terraform_dataflow_job",
+	"tags":        [],
+	"vcs_repo": {
+		"branch":             "",
+		"display_identifier": "savitapal8/terraform_dataflow_job",
+		"identifier":         "savitapal8/terraform_dataflow_job",
+		"ingress_submodules": false,
+	},
+	"working_directory": "",
+}
+
+cost_estimate = {
+	"delta_monthly_cost":    "0.0",
+	"prior_monthly_cost":    "0.0",
+	"proposed_monthly_cost": "0.0",
+}

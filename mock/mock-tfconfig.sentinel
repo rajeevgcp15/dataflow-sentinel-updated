@@ -1,0 +1,136 @@
+import "strings"
+import "types"
+
+_modules = {
+	"root": {
+		"data":    {},
+		"modules": {},
+		"outputs": {},
+		"providers": {
+			"google": {
+				"alias": {
+					"": {
+						"config": {
+							"region": "us-central1",
+						},
+						"references": {
+							"access_token": [
+								"var.access_token",
+							],
+							"project": [
+								"var.project_id",
+							],
+							"region": [],
+						},
+						"version": "",
+					},
+				},
+				"config": {
+					"region": "us-central1",
+				},
+				"references": {
+					"access_token": [
+						"var.access_token",
+					],
+					"project": [
+						"var.project_id",
+					],
+					"region": [],
+				},
+				"version": "",
+			},
+			"google-beta": {
+				"alias": {
+					"": {
+						"config": {},
+						"references": {
+							"access_token": [
+								"var.access_token",
+							],
+						},
+						"version": "",
+					},
+				},
+				"config": {},
+				"references": {
+					"access_token": [
+						"var.access_token",
+					],
+				},
+				"version": "",
+			},
+		},
+		"resources": {
+			"google_dataflow_job": {
+				"big_data_job": {
+					"config": {
+						"ip_configuration":      "WORKER_IP_PUBLIC",
+						"kms_key_name":          "projects/modular-scout-345114/locations/global/keyRings/keyring-example/cryptoKeys/crypto-key-example",
+						"labels":                {},
+						"service_account_email": "composer-test-sa2@modular-scout-345114.iam.gserviceaccount.com",
+						"temp_gcs_location":     "gs://my-bucket-df/tmp_dir",
+						"template_gcs_path":     "gs://my-bucket-df/templates/template_file/latest_Word_Count",
+					},
+					"provisioners": null,
+					"references": {
+						"ip_configuration": [],
+						"kms_key_name":     [],
+						"labels":           [],
+						"name": [
+							"var.df-name",
+						],
+						"project": [
+							"var.project_id",
+						],
+						"service_account_email": [],
+						"temp_gcs_location":     [],
+						"template_gcs_path":     [],
+					},
+				},
+			},
+		},
+		"variables": {
+			"access_token": {
+				"default":     null,
+				"description": "access_token",
+			},
+			"df-name": {
+				"default":     null,
+				"description": "Name of Dataflow job",
+			},
+			"project_id": {
+				"default":     null,
+				"description": "project_id",
+			},
+		},
+	},
+}
+
+module_paths = [
+	[],
+]
+
+module = func(path) {
+	if types.type_of(path) is not "list" {
+		error("expected list, got", types.type_of(path))
+	}
+
+	if length(path) < 1 {
+		return _modules.root
+	}
+
+	addr = []
+	for path as p {
+		append(addr, "module")
+		append(addr, p)
+	}
+
+	return _modules[strings.join(addr, ".")]
+}
+
+data = _modules.root.data
+modules = _modules.root.modules
+providers = _modules.root.providers
+resources = _modules.root.resources
+variables = _modules.root.variables
+outputs = _modules.root.outputs
