@@ -1,0 +1,10 @@
+{
+	"records": [
+		{
+			"key": "tfplan-functions",
+			"source": "./common-functions/tfplan-functions/tfplan-functions.sentinel",
+			"sourceSum": "",
+			"dest": "/home/rajeevghosh/WELLS-PHASE3/GAURAV/22June2022/dataflow-sentinel-updated/common-functions/tfplan-functions/tfplan-functions.sentinel"
+		}
+	]
+}
